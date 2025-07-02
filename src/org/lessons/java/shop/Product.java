@@ -26,7 +26,8 @@ public class Product {
   }
 
   public float getPriceAfterTax() {
-    return (this.price * this.iva);
+    float rawPrice = this.price * (1 + this.iva);
+    return Math.round(rawPrice * 100.0f) / 100.0f;
   }
 
   public String getFullName() {
