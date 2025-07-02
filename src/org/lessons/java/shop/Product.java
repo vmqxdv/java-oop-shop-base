@@ -14,7 +14,7 @@ public class Product {
 
     Random random = new Random();
 
-    this.code = random.nextInt(8);
+    this.code = random.nextInt(999999);
     this.name = name;
     this.description = description;
     this.price = price;
