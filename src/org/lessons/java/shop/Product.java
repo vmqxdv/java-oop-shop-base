@@ -1,16 +1,18 @@
 package org.lessons.java.shop;
 
 import java.util.Random;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Product {
 
-  int code;
-  String name;
-  String description;
-  float price;
-  float iva;
+  public int code;
+  public String name;
+  public String description;
+  public BigDecimal price;
+  public BigDecimal iva;
 
-  public Product(String name, String description, float price, float iva) {
+  public Product(String name, String description, BigDecimal price, BigDecimal iva) {
 
     Random random = new Random();
 
@@ -21,17 +23,22 @@ public class Product {
     this.iva = iva;
   }
 
-  public float getPriceBeforeTax() {
+  public BigDecimal getPriceBeforeTax() {
     return this.price;
   }
 
-  public float getPriceAfterTax() {
-    float rawPrice = this.price * (1 + this.iva);
-    return Math.round(rawPrice * 100.0f) / 100.0f;
+  public BigDecimal getPriceAfterTax() {
+    if (price != null && iva != null)
+      return price.add(price.multiply(iva)).setScale(2, RoundingMode.DOWN);
+
+    return null;
   }
 
   public String getFullName() {
-    return this.name + "-" + this.code;
+    if (name != null)
+      return this.code + "-" + this.name;
+
+    return null;
   }
 
 }

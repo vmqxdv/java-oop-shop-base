@@ -1,9 +1,12 @@
 package org.lessons.java.shop;
 
+import java.math.BigDecimal;
+
 public class Main {
   public static void main(String[] args) {
 
-    Product maglietta = new Product("t-shirt", "Maglietta rossa con collo a V", 12.99f, 0.2f);
+    Product maglietta = new Product("t-shirt", "Maglietta rossa con collo a V", new BigDecimal(12.99),
+        new BigDecimal(0.22));
 
     System.out.println(maglietta.getFullName());
     System.out.println(maglietta.getPriceBeforeTax());
