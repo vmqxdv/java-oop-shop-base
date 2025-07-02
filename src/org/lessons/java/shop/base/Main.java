@@ -1,4 +1,4 @@
-package org.lessons.java.shop;
+package org.lessons.java.shop.base;
 
 import java.math.BigDecimal;
 
